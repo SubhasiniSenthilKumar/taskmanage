@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.theme-morning {  background: linear-gradient(135deg, #F3E5F5, #FFE0B2); color: #333; }
+.theme-afternoon {  background: linear-gradient(135deg, #B3E5FC, #FFF8E1);  color: #222; }
+.theme-evening { background: linear-gradient(135deg, #FFF7F0, #FFEAD1); color: #111; }
+.theme-night { background: #000; color: #fff; }
+body.theme-morning,
+body.theme-afternoon,
+body.theme-evening,
+body.theme-night {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

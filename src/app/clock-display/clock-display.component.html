@@ -1,0 +1,13 @@
+<div class="emotion-container">
+  <div class="emoji">{{ emoji }}</div>
+  <div class="msg">{{ message }}</div>
+
+  <!-- Analog Clock -->
+  <div class="clock">
+    <div class="hand hour" [style.transform]="hourDeg"></div>
+    <div class="hand minute" [style.transform]="minDeg"></div>
+    <div class="hand second" [style.transform]="secDeg"></div>
+
+    <span class="center"></span>
+  </div>
+</div>

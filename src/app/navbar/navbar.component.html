@@ -1,0 +1,25 @@
+<nav class="navbar">
+
+  <!-- LEFT SIDE : LOGO + EMOJI -->
+  <div class="left">
+    <span class="logo">MY WEBSITE</span>
+    <span class="emoji" [ngClass]="emojiAnimation">{{ emoji }}</span>
+  </div>
+
+  <!-- RIGHT SIDE : 8 LINKS -->
+  <ul class="nav-links mx-1"> 
+    <li routerLinkActive="active"><a routerLink="/">Home</a></li>
+    <li routerLinkActive="active"><a routerLink="/emotion-clock">Emotion Clock</a></li>
+    <li routerLinkActive="active"><a routerLink="/coin-flip">Coin Flip</a></li>
+    <li routerLinkActive="active"><a routerLink="/colourYourDay">Colour Your Day</a></li>
+    <li routerLinkActive="active"><a routerLink="/habitTree">Habit Tree</a></li>
+    <li routerLinkActive="active"><a routerLink="/contact">Contact</a></li>
+    <li routerLinkActive="active"><a routerLink="/support">Support</a></li>
+    <li routerLinkActive="active"><a routerLink="/feedback">Feedback</a></li>
+  </ul>
+
+</nav>
+
+
+
+

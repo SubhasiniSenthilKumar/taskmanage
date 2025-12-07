@@ -1,29 +1,42 @@
-import { Component, Input } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ThemeService } from './services/theme.service';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ClockDisplayComponent } from './clock-display/clock-display.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, Input, OnInit } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet,NavbarComponent,ClockDisplayComponent,CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-clock-display',
+  imports: [CommonModule],
+  templateUrl: './clock-display.component.html',
+  styleUrl: './clock-display.component.css'
 })
-export class AppComponent {
+export class ClockDisplayComponent implements OnInit{
 
-constructor(private themeService:ThemeService){
 
-}
- ngOnInit(): void {
+
+
+  time: Date = new Date();
+  @Input() emoji: string = '🌞';
+
+  constructor(private themeService: ThemeService){}
+
+  // ngOnInit() {
+  //   setInterval(() => {
+  //     this.time = new Date();
+  //   }, 1000);
+  // }
+
+  message = '';
+
+  hourDeg = '';
+  minDeg = '';
+  secDeg = '';
+
+ 
+
+  ngOnInit(): void {
     this.updateClock();
     setInterval(() => this.updateClock(), 1000);
   }
-  time: Date = new Date();
-  @Input() emoji: string = '🌞';
-    message = '';
+
   updateClock() {
     const now = new Date();
     const hr = now.getHours();
@@ -31,7 +44,9 @@ constructor(private themeService:ThemeService){
     const sec = now.getSeconds();
 
     // Analog clock rotation
-   
+    this.hourDeg = `rotate(${(hr % 12) * 30 + min * 0.5}deg)`;
+    this.minDeg = `rotate(${min * 6}deg)`;
+    this.secDeg = `rotate(${sec * 6}deg)`;
 
     // Emoji + theme logic
     if (hr >= 5 && hr < 12) {
@@ -45,7 +60,7 @@ constructor(private themeService:ThemeService){
       this.themeService.setTheme('theme-afternoon');
 
     } else if (hr >= 17 && hr < 21) {
-      this.emoji = '🌆';
+      this.emoji = '😌';
       this.message = 'Good Evening!';
       this.themeService.setTheme('theme-evening');
 
@@ -56,5 +71,4 @@ constructor(private themeService:ThemeService){
     }
   }
 }
-
 

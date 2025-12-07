@@ -1,0 +1,106 @@
+.calendar-container {
+  width: 84rem;
+  margin: 50px auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.clip {
+  width: 20px;
+  height: 10px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.month {
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex: 1;
+}
+.tile-emoji{
+     position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 3rem;
+  line-height: 1;
+}
+.day-name {
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-grid-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc !important;
+  box-sizing: border-box;
+}
+
+mat-grid-tile.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.emoji {
+  font-size: 3rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+mat-grid-tile.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.mood-palette {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  width: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.palette-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.mood-item {
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.mood-item:hover {
+  background: #f0f0f0;
+}

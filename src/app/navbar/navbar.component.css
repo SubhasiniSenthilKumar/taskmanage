@@ -1,0 +1,96 @@
+/* MAIN NAVBAR */
+.navbar {
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LEFT SIDE */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #222;
+}
+
+/* EMOJI ANIMATION */
+.emoji {
+  font-size: 32px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.bounce {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.blink {
+  animation: blink 0.3s ease;
+}
+
+@keyframes blink {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.6); }
+  100% { transform: scale(1); }
+}
+
+/* RIGHT SIDE NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.nav-links li a:hover {
+  color: #0077ff;
+  transform: translateY(-2px);
+}
+
+/* ACTIVE LINK */
+.active a {
+  color: #0077ff;
+  font-weight: 700;
+  position: relative;
+}
+
+.active a::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 80%;
+  left: 10%;
+  bottom: -4px;
+  background: #0077ff;
+  border-radius: 4px;
+}

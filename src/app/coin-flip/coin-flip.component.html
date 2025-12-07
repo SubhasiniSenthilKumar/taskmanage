@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>🎲 Coin Flip Story Maker</h1>
+
+  <div class="coin-container">
+    <div class="coin" [class.spinning]="spinning">
+      <div class="heads">Heads</div>
+      <div class="tails">Tails</div>
+    </div>
+  </div>
+
+  <button (click)="flipCoin()">Flip Coin</button>
+  <button (click)="resetStory()">Reset Story</button>
+
+  <div class="story-container">
+    <div *ngFor="let line of story" class="story-card">
+      {{ line }}
+    </div>
+  </div>
+</div>
+

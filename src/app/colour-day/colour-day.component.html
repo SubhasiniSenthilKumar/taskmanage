@@ -1,0 +1,39 @@
+<mat-card class="calendar-container">
+  <mat-card-header class="calendar-header">
+    <button mat-icon-button (click)="prevMonth()"><mat-icon>chevron_left</mat-icon></button>
+    <div class="month">{{ monthName }}</div>
+    <button mat-icon-button (click)="nextMonth()"><mat-icon>chevron_right</mat-icon></button>
+  </mat-card-header>
+
+  <!-- larger rowHeight so emoji + date have room -->
+  <mat-grid-list cols="7" rowHeight="100px" gutterSize="2px">
+    <!-- Day names -->
+    <mat-grid-tile *ngFor="let dn of dayNames" class="day-name">
+      <div class="dayname-inner">{{ dn }}</div>
+    </mat-grid-tile>
+
+    <!-- Days -->
+    <mat-grid-tile *ngFor="let day of days" [class.empty]="day.date===0" (click)="pickMood(day)">
+      <!-- IMPORTANT: use explicit classes for date and emoji -->
+      <div class="tile-inner">
+        <div class="tile-emoji" *ngIf="day.date !== 0 && day.mood">{{ day.mood }}</div>
+        <div class="tile-date" *ngIf="day.date !== 0">{{ day.date }}</div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+<!-- Mood Palette -->
+<div class="mood-palette" *ngIf="showMoodPalette">
+  <div class="palette-header">
+    <div>Select Mood</div>
+   <!-- Icon-only Close button -->
+<button mat-icon-button color="warn" (click)="cancelMood()">
+  <mat-icon>close</mat-icon>
+</button>
+
+  </div>
+  <div class="palette-grid">
+    <span *ngFor="let mood of moods" class="mood-item" (click)="selectMood(mood)">{{ mood }}</span>
+  </div>
+</div>
